@@ -1,13 +1,13 @@
 <?php
 namespace luqta\ViewCount;
 
-use Jenssegers\Mongodb\Eloquent\Model as Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class ViewCount extends Model
 {
     protected $table = 'view_counts';
 
     protected $fillable = [
-        'entity_type', 'id', 'ip'
+        'entity_type', 'entity_id', 'vistor_ip'
     ];
 }
