@@ -1,6 +1,6 @@
 {
     "name": "luqta/viewcount",
-    "description": "The package enables you to calculate the view count of an resource",
+    "description": "The package enables you to calculate the view count of a resource",
     "license": "MIT",
     "authors": [
         {
