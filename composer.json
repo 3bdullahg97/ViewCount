@@ -1,0 +1,45 @@
+{
+    "name": "luqta/viewcount",
+    "description": "The package enables you to calculate the view count of an resource",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Abdullah Abdelqader",
+            "email": "3bdullahg97@gmail.com",
+            "homepage": "https://twitter.com/3bdullahg97"
+        }
+    ],
+    "homepage": "https://github.com/luqta/viewcount",
+    "keywords": ["Laravel", "ViewCount"],
+    "require": {
+        "illuminate/support": "~5|~6",
+        "jenssegers/mongodb": "^3.6",
+        "ext-mongodb": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3|~4",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "luqta\\ViewCount\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "luqta\\ViewCount\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "luqta\\ViewCount\\ViewCountServiceProvider"
+            ],
+            "aliases": {
+                "ViewCount": "luqta\\ViewCount\\Facades\\ViewCount"
+            }
+        }
+    }
+}
