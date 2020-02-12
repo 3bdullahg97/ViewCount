@@ -38,7 +38,9 @@
                 "luqta\\ViewCount\\ViewCountServiceProvider"
             ],
             "aliases": {
-                "ViewCount": "luqta\\ViewCount\\Facades\\ViewCount"
+                "ViewCount": "luqta\\Models\\ViewCount",
+                "Countable": "luqta\\Traits\\Countable",
+                "ViewCountJob": "luqta\\Jobs\\ViewCountJob"
             }
         }
     }
