@@ -26,8 +26,10 @@ protected $fillable = [
 ];
 ```
 
-4. Dispatch `ViewCountJob` in your resource controller.
+4. Dispatch `Luqta\ViewCount\ViewCountJob` job in your resource controller.
 
 ```
 dispatch(new ViewCountJob($model, $vistorIp));
 ```
+
+5. Use `Luqta\ViewCount\Traits\Countable` trait in your resource model.

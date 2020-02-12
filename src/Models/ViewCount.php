@@ -1,6 +1,6 @@
 <?php
 
-namespace Luqta\ViewCount;
+namespace Luqta\ViewCount\Models;
 
 use Jenssegers\Mongodb\Eloquent\Model;
 
