@@ -3,7 +3,7 @@
 namespace Luqta\ViewCount\Jobs;
 
 use App\Jobs\Job;
-use Luqta\Models\ViewCount;
+use Luqta\ViewCount\Models\ViewCount;
 use Jenssegers\Mongodb\Eloquent\Model;
 
 class ViewCountJob extends Job
