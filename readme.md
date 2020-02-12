@@ -9,49 +9,35 @@ This is where your description should go. Take a look at [contributing.md](contr
 
 ## Installation
 
-Via Composer
+1. Via Composer
 
 ``` bash
 $ composer require luqta/viewcount
 ```
 
-## Usage
+2. Validate `vistor_ip`
 
-## Change log
-
-Please see the [changelog](changelog.md) for more information on what has changed recently.
-
-## Testing
-
-``` bash
-$ composer test
+```
+'vistor_ip' => 'required|ip'
 ```
 
-## Contributing
+3. Add `view_count` field to your resource collection.
 
-Please see [contributing.md](contributing.md) for details and a todolist.
+```
+protected $fillable = [
+    ...
+    'view_count',
+    ...
+];
+```
 
-## Security
+4. Dispatch `ViewCountJob` in your resource controller.
 
-If you discover any security related issues, please email 3bdullahg97@gmail.com instead of using the issue tracker.
+```
+dispatch(new ViewCountJob($model, $vistorIp));
+```
 
 ## Credits
 
 - [Abdullah Abdelqader][link-author]
 - [All Contributors][link-contributors]
-
-## License
-
-MIT. Please see the [license file](license.md) for more information.
-
-[ico-version]: https://img.shields.io/packagist/v/luqta/viewcount.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/luqta/viewcount.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/luqta/viewcount/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
-
-[link-packagist]: https://packagist.org/packages/luqta/viewcount
-[link-downloads]: https://packagist.org/packages/luqta/viewcount
-[link-travis]: https://travis-ci.org/luqta/viewcount
-[link-styleci]: https://styleci.io/repos/12345678
-[link-author]: https://github.com/luqta
-[link-contributors]: ../../contributors
