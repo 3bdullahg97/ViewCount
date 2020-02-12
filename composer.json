@@ -9,7 +9,7 @@
             "homepage": "https://twitter.com/3bdullahg97"
         }
     ],
-    "homepage": "https://github.com/luqta/viewcount",
+    "homepage": "https://github.com/3bdullahg97/viewcount",
     "keywords": ["Laravel", "ViewCount"],
     "require": {
         "illuminate/support": "~5|~6",
@@ -24,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "luqta\\ViewCount\\": "src/"
+            "Luqta\\ViewCount\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "luqta\\ViewCount\\Tests\\": "tests"
+            "Luqta\\ViewCount\\Tests\\": "tests"
         }
     },
     "extra": {
@@ -38,9 +38,7 @@
                 "luqta\\ViewCount\\ViewCountServiceProvider"
             ],
             "aliases": {
-                "ViewCount": "luqta\\Models\\ViewCount",
-                "Countable": "luqta\\Traits\\Countable",
-                "ViewCountJob": "luqta\\Jobs\\ViewCountJob"
+                "ViewCount": "luqta\\Models\\ViewCount"
             }
         }
     }
