@@ -1,11 +1,6 @@
 # ViewCount
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
-
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
+The package enables you to calculate the view count of a resource (MongoDB Collection).
 
 ## Installation
 
@@ -36,8 +31,3 @@ protected $fillable = [
 ```
 dispatch(new ViewCountJob($model, $vistorIp));
 ```
-
-## Credits
-
-- [Abdullah Abdelqader][link-author]
-- [All Contributors][link-contributors]
