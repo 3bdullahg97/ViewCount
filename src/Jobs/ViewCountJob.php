@@ -1,8 +1,8 @@
 <?php
 
-namespace luqta\ViewCount\Jobs;
+namespace Luqta\ViewCount\Jobs;
 
-use luqta\ViewCount;
+use Luqta\ViewCount;
 use Jenssegers\Mongodb\Eloquent\Model;
 
 class ViewCountJob extends Job

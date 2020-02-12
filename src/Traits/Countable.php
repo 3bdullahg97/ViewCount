@@ -1,6 +1,6 @@
 <?php
 
-namespace luqta\ViewCount\Traits;
+namespace Luqta\ViewCount\Traits;
 
 trait Countable
 {
@@ -13,5 +13,10 @@ trait Countable
     {
         $count = $this->view_count ?? 0;
         return $this->update(['view_count' => ++$count]);
+    }
+
+    public static function boot()
+    {
+        static::$fillable[] = 'view_count';
     }
 }

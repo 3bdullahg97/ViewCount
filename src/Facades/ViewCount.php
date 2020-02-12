@@ -1,6 +1,6 @@
 <?php
 
-namespace luqta\ViewCount\Facades;
+namespace Luqta\ViewCount\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
