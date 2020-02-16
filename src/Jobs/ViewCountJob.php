@@ -15,28 +15,26 @@ class ViewCountJob extends Job implements ShouldQueue
     use SerializesModels, Queueable, InteractsWithQueue;
 
     protected $model;
-    protected $clinetData;
+    protected $data;
 
-    public function __construct(Model $model, $clinetData)
+    public function __construct(Model $model, $data)
     {
         $this->model = $model;
-        $this->clientData = $clinetData;
+        $this->data = $data;
     }
 
     public function handle()
     {   
-        if ($this->clinetData['countable'] == 1) {
-
-            $visit = array_merge([
+        if ($this->data['countable'] == 1) {
+            unset(this->data['countable']);
+            $visitor = array_merge([
                 'entity_type' => $this->model->getTable(),
                 'entity_id' => $this->model->getKey(),
-            ], $this->clinetData);
-    
-            $found = empty(ViewCount::where($visit)->get());
-            $countView = ViewCount::create($visit);
-    
+            ], $this->data);
+            $count = count(ViewCount::where($visitor)->get());
             
-            if ($countView && !$found) {
+            if ($count === 0) {
+                $countView = ViewCount::create($visitor);
                 $this->model->addView();
             }
         }
