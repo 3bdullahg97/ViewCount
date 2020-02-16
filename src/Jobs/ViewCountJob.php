@@ -24,9 +24,11 @@ class ViewCountJob extends Job
             'entity_id' => $this->model->getKey(),
         ], $this->clinetData);
 
+        $found = empty(ViewCount::where($visit)->get());
         $countView = ViewCount::create($visit);
+
         
-        if ($countView) {
+        if ($countView && !$found) {
             $this->model->addView();
         }
     }
