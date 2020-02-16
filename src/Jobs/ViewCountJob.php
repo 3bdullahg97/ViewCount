@@ -26,7 +26,7 @@ class ViewCountJob extends Job implements ShouldQueue
     public function handle()
     {   
         if ($this->data['countable'] == 1) {
-            unset(this->data['countable']);
+            unset($this->data['countable']);
             $visitor = array_merge([
                 'entity_type' => $this->model->getTable(),
                 'entity_id' => $this->model->getKey(),

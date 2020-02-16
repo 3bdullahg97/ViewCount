@@ -15,7 +15,6 @@ class ViewCount extends Model
         'user_agent',
         'browser_language',
         'screen',
-        'document',
         'inner'
     ];
 }
