@@ -3,13 +3,19 @@
 namespace Luqta\ViewCount\Jobs;
 
 use App\Jobs\Job;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 use Luqta\ViewCount\Models\ViewCount;
 use Jenssegers\Mongodb\Eloquent\Model;
 
-class ViewCountJob extends Job
+class ViewCountJob extends Job implements ShouldQueue
 {
-    private $model;
-    private $clinetData;
+    use SerializesModels, Queueable, InteractsWithQueue;
+
+    protected $model;
+    protected $clinetData;
 
     public function __construct(Model $model, $clinetData)
     {
@@ -18,18 +24,21 @@ class ViewCountJob extends Job
     }
 
     public function handle()
-    {
-        $visit = array_merge([
-            'entity_type' => $this->model->getTable(),
-            'entity_id' => $this->model->getKey(),
-        ], $this->clinetData);
+    {   
+        if ($this->clinetData['countable'] == 1) {
 
-        $found = empty(ViewCount::where($visit)->get());
-        $countView = ViewCount::create($visit);
-
-        
-        if ($countView && !$found) {
-            $this->model->addView();
+            $visit = array_merge([
+                'entity_type' => $this->model->getTable(),
+                'entity_id' => $this->model->getKey(),
+            ], $this->clinetData);
+    
+            $found = empty(ViewCount::where($visit)->get());
+            $countView = ViewCount::create($visit);
+    
+            
+            if ($countView && !$found) {
+                $this->model->addView();
+            }
         }
     }
 }
