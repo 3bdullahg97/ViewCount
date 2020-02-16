@@ -13,6 +13,7 @@ $ composer require luqta/viewcount
 2. Validate `vistor_ip`
 
 ```
+'user_id' => 'string',
 'countable' => 'required|boolean',
 'vistor_ip' => 'required_if:countable,1|string',
 'user_agent' => 'required_if:countable,1|string',
