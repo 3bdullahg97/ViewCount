@@ -9,21 +9,22 @@ use Jenssegers\Mongodb\Eloquent\Model;
 class ViewCountJob extends Job
 {
     private $model;
-    private $vistorIp;
+    private $clinetData;
 
-    public function __construct(Model $model, $vistorIp)
+    public function __construct(Model $model, $clinetData)
     {
         $this->model = $model;
-        $this->vistorIp = $vistorIp;
+        $this->clientData = $clinetData;
     }
 
     public function handle()
     {
-        $countView = ViewCount::create([
+        $visit = array_merge([
             'entity_type' => $this->model->getTable(),
             'entity_id' => $this->model->getKey(),
-            'vistor_ip' => $this->vistorIp
-        ]);
+        ], $this->clinetData);
+
+        $countView = ViewCount::create($visit);
         
         if ($countView) {
             $this->model->addView();
